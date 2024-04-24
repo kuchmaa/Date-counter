@@ -54,7 +54,7 @@ XML.onreadystatechange = function () {
   }
 };
 
-XML.open("GET", "/db/relises.json", true);
+XML.open("GET", "/Date-counter/db/relises.json", true);
 XML.send();
 
 const reliseJsonInteval = setInterval(() => {
