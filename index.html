@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+    
+    const html = document.querySelector('html');
+    if (document.cookie.includes("lang")) {
+        const lang = document.cookie.split(";")[0].split("=")[1];
+        if (html.lang != lang) {
+            if (lang !== 'en') {
+                location.href = `/${lang}`
+            } else {
+                location.href = `/`
+            }
+        }
+    }
+    function changeLang(lang) {
+        document.cookie = `lang=${lang}; path=/`;
+        if (lang != 'en') {
+            location.href = `/${lang}`;
+        } else {
+            location.href = `/`;
+        }
+    }
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <script type="module" src="/js/main.js" defer></script>
+</head>
+
+<body theme="dark">
+    
+    <header class="flex">
+        <a href="javascript: changeLang('ru')">ru</a>
+        <a href="javascript: changeLang('en')">en</a>
+    </header>
+    
+    <div class="flex center">
+        <h3 id="countdown_label" class="flex">
+            <div id="skeleton__countName" class="skeleton__anim"></div>
+        </h3>
+        <div id="countdown">
+            <div class="flex countdown_stackpanel">
+                <div class="flex">
+                    <div class="skeleton__anim"></div>
+                    <label class="counter" id="days">00</label>
+                    <label class="count_name">Days</label>
+                </div>
+                <label class="counter dots"><span class="dot">:</span></label>
+                <div class="flex">
+                    <div class="skeleton__anim test"></div>
+                    <label class="counter" id="hours">00</label>
+                    <label class="count_name">Hours</label>
+                </div>
+                    <label class="counter dots"><span class="dot">:</span></label>
+
+                <div class="flex">
+                    <div class="skeleton__anim test"></div>
+                    <label class="counter" id="minutes">00</label>
+                    <label class="count_name">Minutes</label>
+                </div>
+                    <label class="counter dots"><span class="dot">:</span></label>
+                <div class="flex">
+                    <div class="skeleton__anim test"></div>
+                    <label class="counter" id="seconds">00</label>
+                    <label class="count_name">Seconds</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
