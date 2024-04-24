@@ -3,7 +3,7 @@ import { updateCounter } from "./updateCounter.js";
 
 console.log(location.host);
 var host;
-if (location.host == "shunpocode.github.io/") {
+if (location.host == "shunpocode.github.io") {
   host = "/Date-counter";
 } else {
   host = "";
