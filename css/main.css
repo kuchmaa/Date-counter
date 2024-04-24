@@ -56,7 +56,7 @@ header{
     width: 100%;
     gap: 12px;
 }
-#countdown_label {
+#countdown_label, #countdown_label > span{
     padding: var(--padding);
     color: var(--red);
     font-size: clamp(12px, 10dvw, 100px);
@@ -67,7 +67,7 @@ header{
     position: relative;
     min-height: clamp(20px, 15dvw, 100px);
 }
-#countdown_label .skeleton__anim{
+#countdown_label .skeleton__anim, #countdown_label .skeleton{
     width: 70%;
 }
 .count_name {
@@ -93,7 +93,7 @@ header{
     gap: 12px;
     height: clamp(20px, 15dvw, 220px);
 }
-.countdown_stackpanel>div .skeleton__anim{
+.countdown_stackpanel>div .skeleton__anim, .countdown_stackpanel>div .skeleton{
     height: clamp(20px, 15dvw, 220px);
 }
 .countdown_stackpanel .counter {

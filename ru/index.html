@@ -9,7 +9,6 @@
         host = "";
     }
 
-    console.log(host);
     const html = document.querySelector('html');
     if (document.cookie.includes("lang")) {
         const lang = document.cookie.split(";")[0].split("=")[1];
@@ -53,31 +52,32 @@
     
     <div class="flex center">
         <h3 id="countdown_label" class="flex">
-            <div id="skeleton__countName" class="skeleton__anim"></div>
+            <div id="skeleton__countName" class="skeleton"></div>
+            <span></span>
         </h3>
         <div id="countdown">
             <div class="flex countdown_stackpanel">
                 <div class="flex">
-                    <div class="skeleton__anim"></div>
+                    <div class="skeleton"></div>
                     <label class="counter" id="days">00</label>
                     <label class="count_name">Дни</label>
                 </div>
                 <label class="counter dots"><span class="dot">:</span></label>
                 <div class="flex">
-                    <div class="skeleton__anim test"></div>
+                    <div class="skeleton test"></div>
                     <label class="counter" id="hours">00</label>
                     <label class="count_name">Часы</label>
                 </div>
                     <label class="counter dots"><span class="dot">:</span></label>
 
                 <div class="flex">
-                    <div class="skeleton__anim test"></div>
+                    <div class="skeleton test"></div>
                     <label class="counter" id="minutes">00</label>
                     <label class="count_name">Минуты</label>
                 </div>
                     <label class="counter dots"><span class="dot">:</span></label>
                 <div class="flex">
-                    <div class="skeleton__anim test"></div>
+                    <div class="skeleton test"></div>
                     <label class="counter" id="seconds">00</label>
                     <label class="count_name">Секунды</label>
                 </div>

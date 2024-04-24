@@ -1,7 +1,6 @@
 import Counter from "./Counter.js";
 import { updateCounter } from "./updateCounter.js";
 
-console.log(location.host);
 var host;
 if (location.host == "shunpocode.github.io") {
   host = "/Date-counter";
@@ -21,16 +20,16 @@ const skeleton = {
     time: {
       day: document
         .getElementById("countdown")
-        .getElementsByClassName("skeleton__anim")[0],
+        .getElementsByClassName("skeleton")[0],
       hour: document
         .getElementById("countdown")
-        .getElementsByClassName("skeleton__anim")[1],
+        .getElementsByClassName("skeleton")[1],
       min: document
         .getElementById("countdown")
-        .getElementsByClassName("skeleton__anim")[2],
+        .getElementsByClassName("skeleton")[2],
       sec: document
         .getElementById("countdown")
-        .getElementsByClassName("skeleton__anim")[3],
+        .getElementsByClassName("skeleton")[3],
     },
     timeDisplay: function (state) {
       if (state === true) {
