@@ -17,9 +17,9 @@
     function changeLang(lang) {
         document.cookie = `lang=${lang}; path=/`;
         if (lang != 'en') {
-            location.href = `/${lang}`;
+            location.href = `./${lang}`;
         } else {
-            location.href = `/`;
+            location.href = `./`;
         }
     }
 </script>
