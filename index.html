@@ -2,24 +2,31 @@
 <html lang="en">
 
 <script>
-    
+    var host;
+    if (location.host == "/shunpocode.github.io/") {
+        host = "/Date-counter";      
+    } else {
+        host = "";
+    }
+
+    console.log(host);
     const html = document.querySelector('html');
     if (document.cookie.includes("lang")) {
         const lang = document.cookie.split(";")[0].split("=")[1];
         if (html.lang != lang) {
             if (lang !== 'en') {
-                location.href = `/${lang}`
+                location.href = `${host}/${lang}`
             } else {
-                location.href = `/`
+                location.href = "/"
             }
         }
     }
     function changeLang(lang) {
-        document.cookie = `lang=${lang}; path=/`;
+        document.cookie = `lang=${lang}; path=${host}/`;
         if (lang != 'en') {
-            location.href = `./${lang}`;
+            location.href = `/${lang}`;
         } else {
-            location.href = `./`;
+            location.href = `/`;
         }
     }
 </script>

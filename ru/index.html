@@ -2,24 +2,31 @@
 <html lang="ru">
 
 <script>
-    
+    var host;
+    if (location.host == "/shunpocode.github.io/") {
+        host = location.host;      
+    } else {
+        host = "";
+    }
+
+    console.log(host);
     const html = document.querySelector('html');
     if (document.cookie.includes("lang")) {
         const lang = document.cookie.split(";")[0].split("=")[1];
         if (html.lang != lang) {
             if (lang !== 'ru') {
-                location.href = `/${lang}`
+                location.href = `${host}/${lang}`
             } else {
-                location.href = `/`
+                location.href = "${host}/"
             }
         }
     }
     function changeLang(lang) {
         document.cookie = `lang=${lang}; path=/`;
         if (lang != 'en') {
-            location.href = `./${lang}`;
+            location.href = `/${lang}`;
         } else {
-            location.href = `./`;
+            location.href = `/`;
         }
     }
 </script>

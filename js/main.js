@@ -1,6 +1,12 @@
 import Counter from "./Counter.js";
 import { updateCounter } from "./updateCounter.js";
 
+var host;
+if (location.host == "shunpocode.github.io/") {
+  host = "/Date-counter";
+} else {
+  host = "";
+}
 
 const counts = {
   day: document.getElementById("days"),
@@ -54,7 +60,7 @@ XML.onreadystatechange = function () {
   }
 };
 
-XML.open("GET", "/Date-counter/db/relises.json", true);
+XML.open("GET", host + "/db/relises.json", true);
 XML.send();
 
 const reliseJsonInteval = setInterval(() => {
