@@ -41,13 +41,21 @@
 </head>
 
 <body>
-    
+    <script>
+        if (document.cookie.includes("theme")) {
+            if (document.cookie.include("dark")) {
+                document.body.theme = "dark"
+            } else if (document.cookie.includes("light")) {
+                document.body.theme = "light"
+            }
+        }
+    </script>
     <header class="flex">
         <div>
             <a href="javascript: changeLang('ru')" style="margin-right: 10px;">ru</a>
-        <a href="javascript: changeLang('en')">en</a>
+            <a href="javascript: changeLang('en')">en</a>
         </div>
-        <div>
+        <div id="changeCountdowns">
             <label for="countdowns">Choose countdown:</label>
             <select name="countdowns" id="countdowns">
                 <option class="option" value="end-year">End year</option>
@@ -71,26 +79,26 @@
                 <div class="flex">
                     <div class="skeleton"></div>
                     <span class="counter" id="days">00</span>
-                    <span class="count_name">Дни</span>
+                    <span class="count_name">Days</span>
                 </div>
                 <span class="counter dots"><span class="dot">:</span></span>
                 <div class="flex">
                     <div class="skeleton test"></div>
                     <span class="counter" id="hours">00</span>
-                    <span class="count_name">Часы</span>
+                    <span class="count_name">Hours</span>
                 </div>
                     <span class="counter dots"><span class="dot">:</span></span>
 
                 <div class="flex">
                     <div class="skeleton test"></div>
                     <span class="counter" id="minutes">00</span>
-                    <span class="count_name">Минуты</span>
+                    <span class="count_name">Minutes</span>
                 </div>
                     <span class="counter dots"><span class="dot">:</span></span>
                 <div class="flex">
                     <div class="skeleton test"></div>
                     <span class="counter" id="seconds">00</span>
-                    <span class="count_name">Секунды</span>
+                    <span class="count_name">Seconds</span>
                 </div>
             </div>
         </div>

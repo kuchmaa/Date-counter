@@ -9,8 +9,8 @@
     --skeleton-bg-1: hsl(200, 20%, 80%);
     --skeleton-bg-2: hsl(200, 20%, 95%);
     --bg-button: #0F172A;
-  }
-  body{
+    --bg-body: #fff;
+    --color-btn: white;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -18,6 +18,9 @@
     --red: red;
     --skeleton-bg-1: hsl(200, 0%, 15%);
     --skeleton-bg-2: hsl(200, 0%, 25%);
+    --bg-button: white;
+    --bg-body: #121212;
+    --color-btn: black;
   }
 }
 body[theme=light]{
@@ -26,14 +29,17 @@ body[theme=light]{
     --skeleton-bg-1: hsl(200, 20%, 80%) !important;
     --skeleton-bg-2: hsl(200, 20%, 95%) !important;
     --bg-button: #0F172A;
-
+    --bg-body: #fff !important;
+    --color-btn: white !important;
 }
 body[theme=dark]{
     --color:white !important; 
     --red: red !important;
     --skeleton-bg-1: hsl(200, 0%, 15%) !important;
     --skeleton-bg-2: hsl(200, 0%, 25%) !important;
-    background-color: #121212;
+    --bg-button: white !important;
+    --bg-body: #121212 !important;
+    --color-btn: black !important;
 }
 
 html,
@@ -41,6 +47,7 @@ body {
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg-body);
 }
 .flex {
     display: flex;
@@ -51,6 +58,7 @@ button{
     color: white;
     border-radius: 6px;
     border: none;
+    color: var(--color-btn);
 }
 header{
     height: 55px;
@@ -65,7 +73,13 @@ select{
     padding: 8px;
     border-radius: 6px;
 }
-
+#changeCountdowns label{
+    color: var(--color);
+}
+#countdowns{
+    background: transparent;
+    color: var(--color);
+}
 
 .menu_btn{
     background: none;
@@ -125,6 +139,7 @@ select{
     height: clamp(20px, 15dvw, 220px);
 }
 .countdown_stackpanel .counter {
+    color: var(--color);
     font-size: clamp(20px, 15dvw, 200px);
 }
 .countdown_stackpanel div:last-child>.counter {

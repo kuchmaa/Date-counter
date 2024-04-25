@@ -41,15 +41,38 @@
     <script type="module" src="../js/main.js" defer></script>
 </head>
 
-<body theme="dark">
-    
+<body>
+    <script>
+        if (document.cookie.includes("theme")) {
+            if (document.cookie.includes("dark")) {
+                document.body.setAttribute("theme", "dark");
+            } else if (document.cookie.includes("light")) {
+                console.log('33');
+                document.body.setAttribute("theme", "light");
+            }
+        }
+    </script>
     <header class="flex">
-        <a href="javascript: changeLang('ru')">ru</a>
-        <a href="javascript: changeLang('en')">en</a>
-        <div id="menu">
+        <div>
+            <a href="javascript: changeLang('ru')" style="margin-right: 10px;">ru</a>
+            <a href="javascript: changeLang('en')">en</a>
+        </div>
+        <div>
+            <button id="theme-l">Light</button>
+            <button id="theme-d">Dark</button>
+        </div>
+        <div id="changeCountdowns">
+            <label for="countdowns">Choose countdown:</label>
+            <select name="countdowns" id="countdowns">
+                <option class="option" value="end-year">End year</option>
+                <option class="option" value="v_rising">V Rising</option>
+                <option class="option" value="stalker_2">S.T.A.L.K.E.R. 2: Heart of Chornobyl</option>
+            </select>
+        </div>
+        <!-- <div id="menu">
             <button id="v_rising" class="menu_btn">V Rising</button>
             <button id="stalker_2" class="menu_btn">S.T.A.L.K.E.R. 2: Heart of Chornobyl</button>
-        </div>    
+        </div> -->
     </header>
     
     <div class="flex center">
@@ -61,27 +84,27 @@
             <div class="flex countdown_stackpanel">
                 <div class="flex">
                     <div class="skeleton"></div>
-                    <label class="counter" id="days">00</label>
-                    <label class="count_name">Дни</label>
+                    <span class="counter" id="days">00</span>
+                    <span class="count_name">Дни</span>
                 </div>
-                <label class="counter dots"><span class="dot">:</span></label>
+                <span class="counter dots"><span class="dot">:</span></span>
                 <div class="flex">
                     <div class="skeleton test"></div>
-                    <label class="counter" id="hours">00</label>
-                    <label class="count_name">Часы</label>
+                    <span class="counter" id="hours">00</span>
+                    <span class="count_name">Часы</span>
                 </div>
-                    <label class="counter dots"><span class="dot">:</span></label>
+                    <span class="counter dots"><span class="dot">:</span></span>
 
                 <div class="flex">
                     <div class="skeleton test"></div>
-                    <label class="counter" id="minutes">00</label>
-                    <label class="count_name">Минуты</label>
+                    <span class="counter" id="minutes">00</span>
+                    <span class="count_name">Минуты</span>
                 </div>
-                    <label class="counter dots"><span class="dot">:</span></label>
+                    <span class="counter dots"><span class="dot">:</span></span>
                 <div class="flex">
                     <div class="skeleton test"></div>
-                    <label class="counter" id="seconds">00</label>
-                    <label class="count_name">Секунды</label>
+                    <span class="counter" id="seconds">00</span>
+                    <span class="count_name">Секунды</span>
                 </div>
             </div>
         </div>

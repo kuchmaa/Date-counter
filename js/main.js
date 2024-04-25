@@ -1,11 +1,20 @@
 import newCounter from "./Counters/newCounter.js";
+import { Buttons } from "./Elements.js";
+import { setTheme } from "./Theme/chengeTheme.js";
 
-var host;
+export var host;
 if (location.host == "shunpocode.github.io") {
   host = "/Date-counter";
 } else {
   host = "";
 }
+
+Buttons.theme.dark.addEventListener("click", function () {
+  setTheme("dark")
+})
+Buttons.theme.light.addEventListener("click", function () {
+  setTheme("light")
+})
 
 const XML = new XMLHttpRequest();
 var reliseJSON;

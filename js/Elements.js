@@ -1,3 +1,10 @@
+export const Buttons = {
+  theme: {
+    light: document.getElementById("theme-l"),
+    dark: document.getElementById("theme-d")
+  }
+}
+
 export const Title = document.getElementById("skeleton__countName");
 export const counts = {
   day: document.getElementById("days"),
