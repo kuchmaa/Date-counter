@@ -10,13 +10,14 @@
     }
     const html = document.querySelector('html');
     if (document.cookie.includes("lang")) {
-        const lang = document.cookie.split(";")[0].split("=")[1];
-        if (html.lang != lang) {
-            if (lang !== 'en') {
-                location.href = `${host}/${lang}`
-            } else {
-                location.href = host + "/"
+        var lang = document.cookie.split(";");
+        for (let i = 0; i < lang.length; i++) {
+            if (lang[i].includes("lang")) {
+                lang = lang[i].split("=")[1];
             }
+        }
+        if (html.lang != lang) {
+            location.href = `${host}/${lang}`
         }
     }
     function changeLang(lang) {
