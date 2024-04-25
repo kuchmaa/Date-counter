@@ -8,6 +8,9 @@
     --red: darkred;
     --skeleton-bg-1: hsl(200, 20%, 80%);
     --skeleton-bg-2: hsl(200, 20%, 95%);
+    --bg-button: #0F172A;
+  }
+  body{
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -22,7 +25,7 @@ body[theme=light]{
     --red: darkred !important;
     --skeleton-bg-1: hsl(200, 20%, 80%) !important;
     --skeleton-bg-2: hsl(200, 20%, 95%) !important;
-    background-color: white;
+    --bg-button: #0F172A;
 
 }
 body[theme=dark]{
@@ -37,18 +40,42 @@ html,
 body {
     height: 100%;
     margin: 0;
-    font-family: "Xanh Mono"
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .flex {
     display: flex;
+}
+button{
+    padding: 8px;
+    background-color: var(--bg-button);
+    color: white;
+    border-radius: 6px;
+    border: none;
 }
 header{
     height: 55px;
     width: 100%;
     box-sizing: border-box;
     padding: var(--padding);
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+select{
+    padding: 8px;
+    border-radius: 6px;
+}
+
+
+.menu_btn{
+    background: none;
+    border: none;
+}
+.menu_btn:hover{
+    background-color: #F1F5F9;
 }
 .center {
+    font-family: "Xanh Mono";
     flex-direction: column;
     position: absolute;
     top: 50%;
@@ -59,7 +86,7 @@ header{
 #countdown_label, #countdown_label > span{
     padding: var(--padding);
     color: var(--red);
-    font-size: clamp(12px, 10dvw, 100px);
+    font-size: clamp(12px, 7.5vw, 60px);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -78,6 +105,7 @@ header{
 
 
 .countdown_stackpanel {
+
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
