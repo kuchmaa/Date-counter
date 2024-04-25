@@ -43,10 +43,11 @@
 <body>
     <script>
         if (document.cookie.includes("theme")) {
-            if (document.cookie.include("dark")) {
-                document.body.theme = "dark"
+            if (document.cookie.includes("dark")) {
+                document.body.setAttribute("theme", "dark");
             } else if (document.cookie.includes("light")) {
-                document.body.theme = "light"
+                console.log('33');
+                document.body.setAttribute("theme", "light");
             }
         }
     </script>
@@ -54,6 +55,10 @@
         <div>
             <a href="javascript: changeLang('ru')" style="margin-right: 10px;">ru</a>
             <a href="javascript: changeLang('en')">en</a>
+        </div>
+        <div>
+            <button id="theme-l">Light</button>
+            <button id="theme-d">Dark</button>
         </div>
         <div id="changeCountdowns">
             <label for="countdowns">Choose countdown:</label>
