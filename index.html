@@ -58,21 +58,31 @@
             <a href="javascript: changeLang('en')">en</a>
         </div>
         <div>
-            <button id="theme-l">Light</button>
-            <button id="theme-d">Dark</button>
+            <button id="theme-l" focus>Light</button>
+            <button id="theme-d" focus>Dark</button>
         </div>
         <div id="changeCountdowns">
-            <label for="countdowns">Choose countdown:</label>
-            <select name="countdowns" id="countdowns">
-                <option class="option" value="end-year">End year</option>
-                <option class="option" value="v_rising">V Rising</option>
-                <option class="option" value="stalker_2">S.T.A.L.K.E.R. 2: Heart of Chornobyl</option>
-            </select>
-        </div>
-        <!-- <div id="menu">
-            <button id="v_rising" class="menu_btn">V Rising</button>
-            <button id="stalker_2" class="menu_btn">S.T.A.L.K.E.R. 2: Heart of Chornobyl</button>
-        </div> -->
+            <button bg="off" class="flex" id="counts-btn" focus>
+                <span>Select countdown</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path stroke="var(--color)" opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"></path>
+                </svg>
+            </button>
+            <div class="flex dropdown" id="counts-menu">
+                <button class="flex" id="end-year" bg="off" border="none">
+                    New Year
+                </button>
+                <button class="flex" id="v_rising" bg="off" border="none">
+                    V Rising
+                </button>
+                <button  class="flex"id="stalker_2" bg="off" border="none">S.T.A.L.K.E.R. 2: Heart of Chornobyl</button>
+            </div>
+        </div>  
+        
+        <!-- <option class="option" value=""></option>
+        <option class="option" value="v_rising">V Rising</option>
+        <option class="option" value="stalker_2">S.T.A.L.K.E.R. 2: Heart of Chornobyl</option> -->
+
     </header>
     
     <div class="flex center">

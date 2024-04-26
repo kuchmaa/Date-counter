@@ -1,19 +1,20 @@
 
 import { counts, skeleton } from "../Elements.js";
 
-export default function newCounter({ json, name, date } ) {
+export default function newCounter({ json, name, newDate } ) {
   if (json && typeof(json) === "object") {
     const target = json.games[name];
-    if (
-      !document
-        .getElementById("countdown_label")
-        .querySelector("span")
-        .innerHTML.includes(target.title)
-    ) {
-      document
-        .getElementById("countdown_label")
-        .querySelector("span").innerHTML = target.title;
-    }
+    // if (
+    //   !document
+    //     .getElementById("countdown_label")
+    //     .querySelector("span")
+    //     .innerHTML.includes(target.title)
+    // ) {
+    //   document
+    //     .getElementById("countdown_label")
+    //     .querySelector("span").innerHTML = target.title;
+    // }
+    setTitle(target.title);
 
     const date = new Date(
       target.year,
@@ -24,17 +25,23 @@ export default function newCounter({ json, name, date } ) {
       target.sec
     );
     counterTimer(date, counts.day, counts.hour, counts.min, counts.sec);
-  } else {
-    console.error(
-      `Неверное значение: { json: ${json}}.\n { json } должен принимать json обьект, \n в котором есть значения из файла relises.json`
+  }
+  if (newDate) {
+    setTitle(name);
+    const date = new Date(
+      newDate.year,
+      newDate.month,
+      newDate.day,
+      newDate.hour,
+      newDate.min,
+      newDate.sec
     );
-  }
-  if (date) {
-    
+    counterTimer(date, counts.day, counts.hour, counts.min, counts.sec);
+
   }
   
   
-  skeleton.count.timeDisplay(false);
+  skeleton.count.display(false);
 
 
   function counterTimer(target, dayDiv, hourDiv, minDiv, secDiv) {
@@ -51,5 +58,17 @@ export default function newCounter({ json, name, date } ) {
     hourDiv.innerHTML = hours;
     minDiv.innerHTML = minutes;
     secDiv.innerHTML = seconds;
+  }
+  function setTitle(title) {
+    if (
+      !document
+        .getElementById("countdown_label")
+        .querySelector("span")
+        .innerHTML.includes(title)
+    ) {
+      document
+        .getElementById("countdown_label")
+        .querySelector("span").innerHTML = title;
+    }
   }
 }

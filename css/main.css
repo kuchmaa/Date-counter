@@ -6,11 +6,13 @@
 @media (prefers-color-scheme: light) {
   :root{
     --red: darkred;
-    --skeleton-bg-1: hsl(200, 20%, 80%);
-    --skeleton-bg-2: hsl(200, 20%, 95%);
+    --skeleton-bg-1: hsl(200, 20%, 90%);
+    --skeleton-bg-2: hsl(200, 20%, 80%);
     --bg-button: #0F172A;
     --bg-body: #fff;
     --color-btn: white;
+    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12);
+    --outline-color: black;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -21,16 +23,21 @@
     --bg-button: white;
     --bg-body: #121212;
     --color-btn: black;
+    --border-color: rgb(66, 66, 66);
+    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3);
+    --outline-color: #d4d4d8;
   }
 }
 body[theme=light]{
     --color: black !important;
     --red: darkred !important;
-    --skeleton-bg-1: hsl(200, 20%, 80%) !important;
-    --skeleton-bg-2: hsl(200, 20%, 95%) !important;
+    --skeleton-bg-1: hsl(200, 20%, 90%) !important;
+    --skeleton-bg-2: hsl(200, 20%, 80%) !important;
     --bg-button: #0F172A;
     --bg-body: #fff !important;
     --color-btn: white !important;
+    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12) !important;
+    --outline-color: black !important;
 }
 body[theme=dark]{
     --color:white !important; 
@@ -40,6 +47,9 @@ body[theme=dark]{
     --bg-button: white !important;
     --bg-body: #121212 !important;
     --color-btn: black !important;
+    --border-color: rgb(66, 66, 66) !important;
+    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3) !important;
+    --outline-color: #d4d4d8 !important;
 }
 
 html,
@@ -53,12 +63,29 @@ body {
     display: flex;
 }
 button{
-    padding: 8px;
+    gap: 60px;
+    padding: 8px 12px;
     background-color: var(--bg-button);
-    color: white;
     border-radius: 6px;
-    border: none;
+    border: 1.5px solid var(--border-color);
     color: var(--color-btn);
+    align-items: center;
+    flex-direction: row;
+}
+button[active]{
+    outline: 2px solid var(--outline-color);
+}
+button[focus]:focus{
+    outline: 2px solid var(--outline-color);
+    outline-offset: 2px;
+}
+button[bg=off]{
+    color: var(--color);
+    background: var(--bg-body);
+}
+button[border=none]{
+    border: none;
+
 }
 header{
     height: 55px;
@@ -69,33 +96,42 @@ header{
     flex-direction: row;
     justify-content: space-between;
 }
-select{
-    padding: 8px;
-    border-radius: 6px;
-}
-#changeCountdowns label{
-    color: var(--color);
-}
-#countdowns{
-    background: transparent;
-    color: var(--color);
+
+#changeCountdowns{
+    position: relative;
 }
 
-.menu_btn{
-    background: none;
-    border: none;
+.dropdown{
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    width: max-content;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px 4px;
+    padding: 8px;
+    gap: 3px;
+    background: var(--bg-body);
+    z-index: 1001;
 }
-.menu_btn:hover{
-    background-color: #F1F5F9;
+.dropdown button{
+    width: 100%;
 }
+.dropdown button:hover{
+    background: var(--bg-btn-dropdown-hover);
+}
+#counts-menu{
+    top: calc(100% + 5px);
+    right: 0px;
+}
+
 .center {
     font-family: "Xanh Mono";
     flex-direction: column;
     position: absolute;
     top: 50%;
-    transform: translate(0, calc(-50% - 55px));
+    transform: translate(0, calc(-50%));
     width: 100%;
-    gap: 12px;
+    gap: 10px;
 }
 #countdown_label, #countdown_label > span{
     padding: var(--padding);
@@ -106,10 +142,10 @@ select{
     align-items: center;
     margin: 0;
     position: relative;
-    min-height: clamp(20px, 15dvw, 100px);
+    min-height: clamp(20px, 5dvw, 80px);
 }
 #countdown_label .skeleton__anim, #countdown_label .skeleton{
-    width: 70%;
+    width: 85%;
 }
 .count_name {
     color: var(--color);
@@ -119,7 +155,6 @@ select{
 
 
 .countdown_stackpanel {
-
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
@@ -136,17 +171,20 @@ select{
     height: clamp(20px, 15dvw, 220px);
 }
 .countdown_stackpanel>div .skeleton__anim, .countdown_stackpanel>div .skeleton{
-    height: clamp(20px, 15dvw, 220px);
+    width: calc(100% + var(--w-c-skel));
+    left: calc(var(--w-c-skel) / -2.5);
+    height: clamp(20px, 15dvw, 240px);
 }
 .countdown_stackpanel .counter {
     color: var(--color);
-    font-size: clamp(20px, 15dvw, 200px);
+    font-size: clamp(20px, 12dvw, 200px);
 }
 .countdown_stackpanel div:last-child>.counter {
     color: var(--red);
 }
 .dot{
     display: block;
+    transform: translateY(-8%);
 }
 .skeleton, .skeleton__anim {
     position: absolute;
@@ -157,7 +195,7 @@ select{
     border-radius: 12px;
 }
 .skeleton__anim{
-    animation: 1.5s skeleton-loading ease-in-out infinite alternate;
+    animation: 1s skeleton-loading ease-in-out infinite alternate;
 }
 @keyframes skeleton-loading {
     0% {
@@ -166,13 +204,20 @@ select{
     100% {
         background-color: var(--skeleton-bg-2);
     }
-    }
-    @keyframes skeleton-loading-h {
-    0% {
-        background-color: rgba(255, 255, 255, .2);
-    }
-    100% {
-        background-color: rgba(255, 255, 255, .3);
-    }
 }
 
+@media (min-width: 769px) {
+    :root{
+        --w-c-skel: 50px;   
+    }
+}
+@media (max-width: 768px) {
+    :root{
+        --w-c-skel: 25px;   
+    }
+}
+@media (max-width: 500px) {
+    :root{
+        --w-c-skel: 8px;   
+    }
+}

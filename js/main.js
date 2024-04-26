@@ -1,5 +1,5 @@
 import newCounter from "./Counters/newCounter.js";
-import { Buttons } from "./Elements.js";
+import { Buttons, skeleton } from "./Elements.js";
 import { setTheme } from "./Theme/chengeTheme.js";
 
 export var host;
@@ -8,13 +8,48 @@ if (location.host == "shunpocode.github.io") {
 } else {
   host = "";
 }
-
+var Timer;
 Buttons.theme.dark.addEventListener("click", function () {
   setTheme("dark")
 })
 Buttons.theme.light.addEventListener("click", function () {
   setTheme("light")
 })
+
+const countersButons = document.getElementById("counts-menu").getElementsByTagName("button");
+
+document.getElementById("end-year").addEventListener("click", function () {
+  Buttons.dropDowns.counters.querySelector("span").innerHTML = document.getElementById("end-year").innerHTML;
+  clearInterval(Timer);
+  skeleton.count.animation(true);
+  skeleton.count.display(true);
+  Timer = setInterval(function () {
+    newCounter({
+      newDate: {
+        year: 2025,
+        month: 0,
+        day: 0,
+        hour: 0,
+        min: 0,
+        sec: 0,
+      },
+      name: "New Year",
+    });
+  }, 1000);
+});
+
+for (let i = 1; i < countersButons.length; i++) {
+    countersButons[i].addEventListener("click", function () {
+        Buttons.dropDowns.counters.querySelector("span").innerHTML =
+          countersButons[i].innerHTML;
+      clearInterval(Timer);
+      skeleton.count.animation(true);
+      skeleton.count.display(true);
+      Timer = setInterval(function () {
+        newCounter({ json: reliseJSON, name: countersButons[i].id });
+      }, 1000);
+  });
+}
 
 const XML = new XMLHttpRequest();
 var reliseJSON;
@@ -38,8 +73,19 @@ const reliseJsonInteval = setInterval(() => {
     if (reliseJSON) {
       clearInterval(reliseJsonInteval);
 
-      var Timer = setInterval(function () {
-        newCounter( { json: reliseJSON, name: "v_rising" } );
+      Timer = setInterval(function () {
+        // newCounter( { json: reliseJSON, name: "v_rising" } );
+        newCounter( { 
+          newDate:{
+            year: 2025,
+            month: 0,
+            day: 0,
+            hour: 0,
+            min: 0,
+            sec: 0
+          },
+          name: "New Year"
+        } );
       }, 1000);
 
       // setTimeout(() => {
@@ -54,4 +100,3 @@ const reliseJsonInteval = setInterval(() => {
   }
   
 }, 300);
-
