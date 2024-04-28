@@ -28,7 +28,7 @@ document.getElementById("end-year").addEventListener("click", function () {
       newDate: {
         year: 2025,
         month: 0,
-        day: 0,
+        day: 1,
         hour: 0,
         min: 0,
         sec: 0,
@@ -48,7 +48,7 @@ document.getElementById("anya-brd").addEventListener("click", function () {
         year: 2024,
         month: 4,
         day: 11,
-        hour: 0,
+        hour: 1,
         min: 0,
         sec: 0,
       },
@@ -98,7 +98,7 @@ const reliseJsonInteval = setInterval(() => {
           newDate:{
             year: 2025,
             month: 0,
-            day: 0,
+            day: 1,
             hour: 0,
             min: 0,
             sec: 0
