@@ -131,7 +131,7 @@ header{
     right: 0px;
 }
 .center {
-    font-family: "Xanh Mono";
+    /* font-family: "Xanh Mono"; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -197,7 +197,7 @@ header{
 }
 .dot{
     display: block;
-    transform: translateY(-5%);
+    /* transform: translateY(-2%); */
 }
 .skeleton, .skeleton__anim {
     position: absolute;
