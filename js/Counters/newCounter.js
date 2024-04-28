@@ -4,16 +4,7 @@ import { counts, skeleton } from "../Elements.js";
 export default function newCounter({ json, name, newDate } ) {
   if (json && typeof(json) === "object") {
     const target = json.games[name];
-    // if (
-    //   !document
-    //     .getElementById("countdown_label")
-    //     .querySelector("span")
-    //     .innerHTML.includes(target.title)
-    // ) {
-    //   document
-    //     .getElementById("countdown_label")
-    //     .querySelector("span").innerHTML = target.title;
-    // }
+
     setTitle(target.title);
 
     const date = new Date(

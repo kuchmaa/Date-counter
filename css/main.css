@@ -5,6 +5,7 @@
 
 @media (prefers-color-scheme: light) {
   :root{
+    --color: black;
     --red: darkred;
     --skeleton-bg-1: hsl(200, 20%, 90%);
     --skeleton-bg-2: hsl(200, 20%, 80%);
@@ -17,6 +18,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root{
+    --color:white;
     --red: red;
     --skeleton-bg-1: hsl(200, 0%, 15%);
     --skeleton-bg-2: hsl(200, 0%, 25%);
@@ -54,6 +56,7 @@ body[theme=dark]{
 
 html,
 body {
+    overflow: hidden;
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -100,7 +103,12 @@ header{
 #changeCountdowns{
     position: relative;
 }
-
+#counts-btn span{
+    max-width: 175px;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
 .dropdown{
     position: absolute;
     flex-direction: column;
@@ -123,26 +131,28 @@ header{
     top: calc(100% + 5px);
     right: 0px;
 }
-
 .center {
     font-family: "Xanh Mono";
     flex-direction: column;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, calc(-50%));
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    height: calc(100% - 55px);
     gap: 10px;
+    padding: var(--padding);
+    box-sizing: border-box;
 }
 #countdown_label, #countdown_label > span{
-    padding: var(--padding);
+    font-weight: 500;
     color: var(--red);
     font-size: clamp(12px, 7.5vw, 60px);
+    width: 100%;
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 0;
     position: relative;
-    min-height: clamp(20px, 5dvw, 80px);
+    min-height: clamp(30px, 7.1vw, 80px);
 }
 #countdown_label .skeleton__anim, #countdown_label .skeleton{
     width: 85%;
@@ -153,17 +163,19 @@ header{
     font-size: clamp(5px, 4dvw, 35px);
 }
 
-
+#countdown{
+    width: 100%;
+}
+.counter-block{
+    min-width: 10%;
+}
 .countdown_stackpanel {
     justify-content: space-between;
     align-items: center;
-    padding: var(--padding);
     position: relative;
     box-sizing: border-box;
 }
-.countdown_stackpanel label{
-    color: var(--color);
-}
+
 .countdown_stackpanel>div {
     position: relative;
     flex-direction: column;
@@ -171,20 +183,21 @@ header{
     height: clamp(20px, 15dvw, 220px);
 }
 .countdown_stackpanel>div .skeleton__anim, .countdown_stackpanel>div .skeleton{
-    width: calc(100% + var(--w-c-skel));
-    left: calc(var(--w-c-skel) / -2.5);
-    height: clamp(20px, 15dvw, 240px);
+    width: 110%;
+    left: -5%;
+    height: clamp(20px, 15dvw, 220px);
 }
 .countdown_stackpanel .counter {
+    min-height: clamp(20px, 15vw, 250px);
     color: var(--color);
-    font-size: clamp(20px, 12dvw, 200px);
+    font-size: clamp(20px, 12vw, 200px);
 }
 .countdown_stackpanel div:last-child>.counter {
     color: var(--red);
 }
 .dot{
     display: block;
-    transform: translateY(-8%);
+    transform: translateY(-5%);
 }
 .skeleton, .skeleton__anim {
     position: absolute;
@@ -203,21 +216,5 @@ header{
     }
     100% {
         background-color: var(--skeleton-bg-2);
-    }
-}
-
-@media (min-width: 769px) {
-    :root{
-        --w-c-skel: 50px;   
-    }
-}
-@media (max-width: 768px) {
-    :root{
-        --w-c-skel: 25px;   
-    }
-}
-@media (max-width: 500px) {
-    :root{
-        --w-c-skel: 8px;   
     }
 }

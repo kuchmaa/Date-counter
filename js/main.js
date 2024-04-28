@@ -37,8 +37,27 @@ document.getElementById("end-year").addEventListener("click", function () {
     });
   }, 1000);
 });
+document.getElementById("anya-brd").addEventListener("click", function () {
+  Buttons.dropDowns.counters.querySelector("span").innerHTML = document.getElementById("anya-brd").innerHTML;
+  clearInterval(Timer);
+  skeleton.count.animation(true);
+  skeleton.count.display(true);
+  Timer = setInterval(function () {
+    newCounter({
+      newDate: {
+        year: 2024,
+        month: 4,
+        day: 11,
+        hour: 0,
+        min: 0,
+        sec: 0,
+      },
+      name: "New Year",
+    });
+  }, 1000);
+});
 
-for (let i = 1; i < countersButons.length; i++) {
+for (let i = 2; i < countersButons.length; i++) {
     countersButons[i].addEventListener("click", function () {
         Buttons.dropDowns.counters.querySelector("span").innerHTML =
           countersButons[i].innerHTML;
