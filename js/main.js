@@ -52,7 +52,7 @@ document.getElementById("anya-brd").addEventListener("click", function () {
         min: 0,
         sec: 0,
       },
-      name: "New Year",
+      name: document.getElementById("anya-brd").innerHTML,
     });
   }, 1000);
 });
