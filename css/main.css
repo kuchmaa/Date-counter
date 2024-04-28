@@ -14,6 +14,7 @@
     --color-btn: white;
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12);
     --outline-color: black;
+    --border-color: rgb(66, 66, 66)
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -23,7 +24,7 @@
     --skeleton-bg-1: hsl(200, 0%, 15%);
     --skeleton-bg-2: hsl(200, 0%, 25%);
     --bg-button: white;
-    --bg-body: #121212;
+    --bg-body: black;
     --color-btn: black;
     --border-color: rgb(66, 66, 66);
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3);
@@ -40,6 +41,7 @@ body[theme=light]{
     --color-btn: white !important;
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12) !important;
     --outline-color: black !important;
+    --border-color: rgb(66, 66, 66) !important;
 }
 body[theme=dark]{
     --color:white !important; 
@@ -47,7 +49,7 @@ body[theme=dark]{
     --skeleton-bg-1: hsl(200, 0%, 15%) !important;
     --skeleton-bg-2: hsl(200, 0%, 25%) !important;
     --bg-button: white !important;
-    --bg-body: #121212 !important;
+    --bg-body: black !important;
     --color-btn: black !important;
     --border-color: rgb(66, 66, 66) !important;
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3) !important;
@@ -56,10 +58,10 @@ body[theme=dark]{
 
 html,
 body {
-    height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: var(--bg-body);
+    overflow: hidden;
 }
 .flex {
     display: flex;
@@ -90,6 +92,7 @@ button[border=none]{
 
 }
 header{
+    position: fixed;
     height: 55px;
     width: 100%;
     box-sizing: border-box;
@@ -97,6 +100,8 @@ header{
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 1000;
+    background: var(--bg-body);
 }
 
 #changeCountdowns{
@@ -136,7 +141,8 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     gap: 10px;
     padding: var(--padding);
     box-sizing: border-box;
@@ -145,7 +151,7 @@ header{
     font-weight: 500;
     color: var(--red);
     font-size: clamp(12px, 7.5vw, 60px);
-    width: 100%;
+    width: 85%;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -154,7 +160,7 @@ header{
     min-height: clamp(30px, 7.1vw, 80px);
 }
 #countdown_label .skeleton__anim, #countdown_label .skeleton{
-    width: 85%;
+    width: 90%;
 }
 .count_name {
     color: var(--color);
