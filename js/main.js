@@ -48,7 +48,7 @@ document.getElementById("anya-brd").addEventListener("click", function () {
         year: 2024,
         month: 4,
         day: 11,
-        hour: 1,
+        hour: 0,
         min: 0,
         sec: 0,
       },
