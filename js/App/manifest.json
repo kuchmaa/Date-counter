@@ -5,11 +5,11 @@
 
   "description": "Описание вашего приложения",
 
-  "scope": "/Date-counter/",
+  "scope": "",
 
-  "start_url": "/Date-counter/",
+  "start_url": "",
 
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "./appIcon.svg",

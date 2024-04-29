@@ -8,6 +8,19 @@ if (location.host == "shunpocode.github.io") {
   host = "/Date-counter";
 } else {
   host = "";
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register(`${host}/js/app/service-worker.js`)
+      .then((registration) => {
+        console.log(
+          "Service Worker зарегистрирован с успешным оффлайн-кэшированием:",
+          registration
+        );
+      })
+      .catch((error) => {
+        console.error("Ошибка при регистрации Service Worker:", error);
+      });
+  } 
 }
 var Timer;
 Buttons.theme.dark.addEventListener("click", function () {
@@ -110,17 +123,3 @@ Buttons.dropDowns.counters.addEventListener("click", function () {
 
 
 // РЕГИСТРАЦИЯ `service-worker`
-
-// if ("serviceWorker" in navigator) {
-//   navigator.serviceWorker
-//     .register(`${host}/js/app/service-worker.js`)
-//     .then((registration) => {
-//       console.log(
-//         "Service Worker зарегистрирован с успешным оффлайн-кэшированием:",
-//         registration
-//       );
-//     })
-//     .catch((error) => {
-//       console.error("Ошибка при регистрации Service Worker:", error);
-//     });
-// } 
