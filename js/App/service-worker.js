@@ -1,16 +1,14 @@
-var host;
-if (location.host == "shunpocode.github.io") {
-  host = "/Date-counter";
-} else {
-  host = "";
-}
+import { host } from "../main.js";
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open("my-cache").then((cache) => {
-      return cache.addAll([`${host}/`]);
-    })
-  );
-});
+export default function serviceWorker() {
+    self.addEventListener("install", (event) => {
+      event.waitUntil(
+        caches.open("my-cache").then((cache) => {
+          return cache.addAll([`${host}/`]);
+        })
+      );
+    });
 
-window.location.href = host;
+    window.location.href = host;
+};
+
