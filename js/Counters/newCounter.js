@@ -1,11 +1,11 @@
 
-import { counts, skeleton } from "../Elements.js";
+import { skeleton } from "../Elements.js";
 
-export default function newCounter({ json, name, newDate } ) {
-  if (json && typeof(json) === "object") {
+export function newCounter({ json, name, newDate }) {
+  if (json && typeof (json) === "object") {
     const target = json.games[name];
 
-    setTitle(target.title);
+    // setTitle(target.title);
 
     const date = new Date(
       target.year,
@@ -15,10 +15,10 @@ export default function newCounter({ json, name, newDate } ) {
       target.min,
       target.sec
     );
-    counterTimer(date, counts.day, counts.hour, counts.min, counts.sec);
-  }
-  if (newDate) {
-    setTitle(name);
+    return date;
+    // startTimer(date, counts.day, counts.hour, counts.min, counts.sec);
+  } else if (newDate) {
+    // setTitle(name);
     const date = new Date(
       newDate.year,
       newDate.month,
@@ -27,36 +27,27 @@ export default function newCounter({ json, name, newDate } ) {
       newDate.min,
       newDate.sec
     );
-    counterTimer(date, counts.day, counts.hour, counts.min, counts.sec);
-
+    return date;
+    // startTimer(date, counts.day, counts.hour, counts.min, counts.sec);
   }
-  
-  
+}
+
+
+export function startTimer(target, dayDiv, hourDiv, minDiv, secDiv) {
+  var result = target - new Date() + 1000;
+  var seconds = Math.floor((result / 1000) % 60);
+  var minutes = Math.floor((result / 1000 / 60) % 60);
+  var hours = Math.floor((result / 1000 / 60 / 60) % 24);
+  var days = Math.floor(result / 1000 / 60 / 60 / 24);
+  dayDiv.innerHTML = days;
+  hourDiv.innerHTML = hours;
+  minDiv.innerHTML = minutes;
+  secDiv.innerHTML = seconds;
   skeleton.count.display(false);
-
-
-  function counterTimer(target, dayDiv, hourDiv, minDiv, secDiv) {
-    var result = target - new Date() + 1000;
-    var seconds = Math.floor((result / 1000) % 60);
-    var minutes = Math.floor((result / 1000 / 60) % 60);
-    var hours = Math.floor((result / 1000 / 60 / 60) % 24);
-    var days = Math.floor(result / 1000 / 60 / 60 / 24);
-
-    dayDiv.innerHTML = days;
-    hourDiv.innerHTML = hours;
-    minDiv.innerHTML = minutes;
-    secDiv.innerHTML = seconds;
-  }
-  function setTitle(title) {
-    if (
-      !document
-        .getElementById("countdown_label")
-        .querySelector("span")
-        .innerHTML.includes(title)
-    ) {
-      document
-        .getElementById("countdown_label")
-        .querySelector("span").innerHTML = title;
-    }
+}
+export function setTitle(title) {
+  if (!document.getElementById("countdown_label").querySelector("span").innerHTML.includes(title)) {
+    document.title = title;
+    document.getElementById("countdown_label").querySelector("span").innerHTML = title;
   }
 }

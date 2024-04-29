@@ -39,17 +39,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
     <script type="module" src="./js/main.js" defer></script>
+    <link rel="manifest" href="./js/App/manifest.json">
+    <meta name="theme-color" content="">
+	<meta name="apple-mobile-web-app-status-bar-style" content="">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 
 <body>
     <script>
+        
         if (document.cookie.includes("theme")) {
             if (document.cookie.includes("dark")) {
                 document.body.setAttribute("theme", "dark");
+                document.querySelector('[name=theme-color]').content = "#000"
+                document.querySelector('[name=apple-mobile-web-app-status-bar-style').content = "#000"         
             } else if (document.cookie.includes("light")) {
                 console.log('33');
                 document.body.setAttribute("theme", "light");
+                document.querySelector('[name=theme-color]').content = "#fff"
+                document.querySelector('[name=apple-mobile-web-app-status-bar-style').content = "#fff"
             }
+        } else {
+            const bgColor = window.getComputedStyle(document.body).getPropertyValue("background-color");
+            document.querySelector('[name=theme-color]').content = bgColor;
+            document.querySelector('[name=apple-mobile-web-app-status-bar-style').content = bgColor;
         }
     </script>
     <header class="flex">
@@ -121,4 +134,15 @@
         </div>
     </section>
 </body>
+<script> 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/js/app/service-worker.js')
+	  .then(registration => { 
+		console.log('Service Worker зарегистрирован с успешным оффлайн-кэшированием:', registration); 
+      }) 
+	  .catch(error => { 
+		console.error('Ошибка при регистрации Service Worker:', error);
+      }); 
+	} 
+</script>
 </html>

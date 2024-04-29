@@ -6,4 +6,8 @@ export const setTheme = ( newTheme ) => {
       document.body.setAttribute("theme", newTheme);
     }
     document.cookie = `theme=${ newTheme }; path=${ host }/`;
+    
+    const bgColor = window.getComputedStyle(document.body).getPropertyValue("background-color");
+    document.querySelector("[name=theme-color]").content = bgColor;
+    document.querySelector("[name=apple-mobile-web-app-status-bar-style").content = bgColor;
 }

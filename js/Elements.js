@@ -50,7 +50,6 @@ export const skeleton = {
     },
     animation: function (state) {
       if (state == true) {
-        console.log(skeletonTitle.className);
         skeletonTitle.className = "skeleton__anim";
         this.time.day.className = "skeleton__anim";
         this.time.hour.className = "skeleton__anim";
