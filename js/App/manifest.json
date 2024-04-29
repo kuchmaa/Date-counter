@@ -5,7 +5,9 @@
 
   "description": "Описание вашего приложения",
 
-  "start_url": "/",
+  "scope": "/Date-counter/",
+
+  "start_url": "/Date-counter/",
 
   "display": "fullscreen",
   "icons": [
