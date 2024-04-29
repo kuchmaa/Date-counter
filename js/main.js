@@ -111,16 +111,16 @@ Buttons.dropDowns.counters.addEventListener("click", function () {
 
 // РЕГИСТРАЦИЯ `service-worker`
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register(`${host}/js/app/service-worker.js`)
-    .then((registration) => {
-      console.log(
-        "Service Worker зарегистрирован с успешным оффлайн-кэшированием:",
-        registration
-      );
-    })
-    .catch((error) => {
-      console.error("Ошибка при регистрации Service Worker:", error);
-    });
-} 
+// if ("serviceWorker" in navigator) {
+//   navigator.serviceWorker
+//     .register(`${host}/js/app/service-worker.js`)
+//     .then((registration) => {
+//       console.log(
+//         "Service Worker зарегистрирован с успешным оффлайн-кэшированием:",
+//         registration
+//       );
+//     })
+//     .catch((error) => {
+//       console.error("Ошибка при регистрации Service Worker:", error);
+//     });
+// } 
