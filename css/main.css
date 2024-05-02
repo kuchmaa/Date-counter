@@ -92,8 +92,6 @@ body {
 main{
     flex-direction: column;
     align-items: center;
-    height: 110vh;
-    height: 110dvh;
 }
 .flex {
     display: flex;
@@ -131,7 +129,8 @@ button:active{
     outline-offset: 1px !important;
 }
 header{
-    position: fixed;
+    position: sticky;
+    top: 0;
     height: 55px;
     width: 100%;
     max-width: var(--max-width);
