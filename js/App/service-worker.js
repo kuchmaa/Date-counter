@@ -7,4 +7,4 @@ self.addEventListener("install", (event) => {
   );
 });
 
-window.location.href = "/";
+

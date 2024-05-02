@@ -5,9 +5,9 @@
 
   "description": "Описание вашего приложения",
 
-  "scope": "/Date-counter/",
+  "scope": "/",
 
-  "start_url": "/Date-counter/",
+  "start_url": "/",
 
   "display": "standalone",
   "icons": [

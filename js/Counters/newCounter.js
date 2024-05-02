@@ -31,8 +31,6 @@ export function newCounter({ json, name, newDate }) {
     // startTimer(date, counts.day, counts.hour, counts.min, counts.sec);
   }
 }
-
-
 export function startTimer(target, dayDiv, hourDiv, minDiv, secDiv) {
   var result = target - new Date() + 1000;
   var seconds = Math.floor((result / 1000) % 60);

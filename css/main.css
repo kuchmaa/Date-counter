@@ -1,6 +1,9 @@
 :root{
+    -webkit-tap-highlight-color: transparent;
     --padding: 0 5% 0 5%;
+    --padding-btn-t-b: 8px;
     color-scheme: light dark;
+    --max-width: 2560px
 }
 
 /* Светлая тема  */
@@ -16,7 +19,10 @@
     --color-btn: white;
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12);
     --outline-color: black;
-    --border-color: rgb(66, 66, 66)
+    --border-color: rgb(66, 66, 66);
+    --gitHub-icon-color: #636c76;
+    --gitHub-color: #1f2328;
+    --line-bg: rgba(180, 180, 180);
   }
 }
 
@@ -34,6 +40,9 @@
     --border-color: rgb(66, 66, 66);
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3);
     --outline-color: #d4d4d8;
+    --gitHub-icon-color: #848d97;
+    --gitHub-color: #e6ede3;
+    --line-bg: rgba(80, 80, 80);
   }
 }
 
@@ -50,6 +59,9 @@ body[theme=light]{
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12) !important;
     --outline-color: black !important;
     --border-color: rgb(66, 66, 66) !important;
+    --gitHub-icon-color: #636c76 !important;
+    --gitHub-color: #1f2328 !important;
+    --line-bg: rgba(180, 180, 180) !important;
 }
 
 /* Тёмная тема выбраная пользователем */
@@ -65,6 +77,9 @@ body[theme=dark]{
     --border-color: rgb(66, 66, 66) !important;
     --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3) !important;
     --outline-color: #d4d4d8 !important;
+    --gitHub-icon-color: #848d97  !important;
+    --gitHub-color: #e6ede3 !important;
+    --line-bg: rgba(80, 80, 80) !important;
 }
 
 html,
@@ -74,12 +89,18 @@ body {
     background: var(--bg-body);
     overflow: hidden;
 }
+main{
+    flex-direction: column;
+    align-items: center;
+}
 .flex {
     display: flex;
 }
 button{
-    gap: 60px;
-    padding: 6px 12px;
+    min-height: 34px;
+    min-width: 34px;
+    gap: 8px;
+    padding: var(--padding-btn-t-b) 12px;
     background-color: var(--bg-button);
     border-radius: 6px;
     border: 1.5px solid var(--border-color);
@@ -111,6 +132,7 @@ header{
     position: fixed;
     height: 55px;
     width: 100%;
+    max-width: var(--max-width);
     box-sizing: border-box;
     padding: var(--padding);
     align-items: center;
@@ -119,12 +141,99 @@ header{
     z-index: 1000;
     background: var(--bg-body);
 }
+#state-header{
+    user-select: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#state-header > div{
+    align-items: center;
+    justify-content: center;
+}
+#state-header > div .line{
+    background-color: var(--line-bg);
+    height: 4px;
+    width: 12px;
+    border-radius: 60px;
+    transition: 250ms ease-in-out;
+}
+@media (hover) {
+    #state-header[state=open] .line:first-child{
+    transform: translateX(0.15rem) !important;
+    }
+    #state-header[state=open] .line:last-child{
+        transform: translateX(-0.15rem) !important;
+    }
+    #state-header[state=open]:hover .line{
+        filter: contrast(0) !important;
+    }
+    #state-header[state=open]:hover .line:first-child{
+        transform: translateX(0.15rem) rotate(-15deg) !important;
+    }
+    #state-header[state=open]:hover .line:last-child{
+        transform: translateX(-0.15rem) rotate(15deg) !important;
+    }
+    #state-header[state=close] .line:first-child{
+        transform: translateX(0.15rem) !important;
+    }
+    #state-header[state=close] .line:last-child{
+        transform: translateX(-0.15rem) !important;
+    }
+    #state-header[state=close]:hover .line{
+        filter: contrast(0) !important;
+    }
+    #state-header[state=close]:hover .line:first-child{
+        transform: translateX(0.15rem) rotate(15deg) !important;
+    }
+    #state-header[state=close]:hover .line:last-child{
+        transform: translateX(-0.15rem) rotate(-15deg) !important;
+    }
+}
 
-#changeCountdowns{
+#state-header[state=open]:active .line{
+    filter: contrast(0);
+}
+#state-header[state=open] .line:first-child{
+    transform: translateX(0.15rem) rotate(-15deg);
+}
+#state-header[state=open] .line:last-child{
+    transform: translateX(-0.15rem) rotate(15deg);
+}
+#state-header[state=close] .line:first-child{
+    transform: translateX(0.15rem) rotate(15deg);
+}
+#state-header[state=close] .line:last-child{
+    transform: translateX(-0.15rem) rotate(-15deg);
+}
+
+header > div{
+    flex-direction: row;
+    gap: 12px;
+    max-width: 100%;
+}
+#login {
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--color);
+}
+#changeCountdowns, #settings{
     position: relative;
 }
+#counts-btn{
+    gap: 60px;
+    max-width: 250px;
+    width:100%;
+}
 #counts-btn span{
-    max-width: 175px;
+    width: 100%;
     overflow: hidden;
     text-wrap: nowrap;
     text-overflow: ellipsis;
@@ -137,18 +246,32 @@ header{
     border: 1.5px solid var(--border-color);
     border-radius: 8px;
     padding: 8px;
-    gap: 3px;
+    gap: 6px;
     background: var(--bg-body);
     z-index: 1001;
     transition: 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    transform: scale(.8) translate(30px, -20px);
     opacity: 0;
     pointer-events: none;
 }
+.dropdown div{
+    width: 100%;
+}
+.dropdown div > h4{
+    margin: 2px 0;
+    color: var(--color);
+}
+.dropdown div > h4::after{
+    content: ":";
+}
+.dropdown hr{
+    width: 100%;
+    margin: 2px 0 0;
+    opacity: .4;
+}
 .dropdown[open]{
-    transform: scale(1) translate(0px, 0px);
-    opacity: 1;
-    pointer-events: all;
+    transform: scale(1) translate(0px, 0px) !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
 }
 .dropdown button{
     width: 100%;
@@ -159,10 +282,18 @@ header{
     background: var(--bg-btn-dropdown-hover);
     
 }
-#counts-menu{
-    top: calc(100% + 5px);
-    right: 0px;
+#counts-menu, #settings-menu{
+    top: calc(100% + 8px);
 }
+#counts-menu{
+    left: -2px;
+    transform: scale(.8) translate(-15px, -20px);
+}
+#settings-menu{
+    right: -2px;
+    transform: scale(.8) translate(30px, -20px);
+}
+
 .center {
     /* font-family: "Xanh Mono"; */
     flex-direction: column;
@@ -174,18 +305,19 @@ header{
     gap: 15px;
     padding: var(--padding);
     box-sizing: border-box;
+    max-width: var(--max-width);
 }
 
 #countdown_label, #countdown_label > span{
     font-weight: 500;
     color: var(--red);
-    font-size: clamp(12px, 7.5vw, 60px);
+    font-size: clamp(12px, calc(3.25vh + 3.25vw), 60px);
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 0;
     position: relative;
-    min-height: clamp(30px, 10vw, 80px);
+    min-height: clamp(30px, calc(5vw + 5vh), 80px);
 }
 #countdown_label{
     width: 100%;
@@ -226,12 +358,13 @@ header{
     width: 110%;
     left: -5%;
     top: 5%;
-    height: clamp(20px, 15dvw, 220px);
+    /* height: clamp(20px, calc(7.5vw + 7vh), 220px); */
+    height: 65%;
 }
 .countdown_stackpanel .counter {
-    min-height: clamp(20px, 15vw, 250px);
+    min-height: clamp(20px, calc(7.5vh + 7.5vw), 250px);
     color: var(--color);
-    font-size: clamp(20px, 12vw, 200px);
+    font-size: clamp(20px, calc(3vh + 6vw), 200px);
 }
 .countdown_stackpanel div:last-child>.counter {
     color: var(--red);
@@ -257,5 +390,29 @@ header{
     }
     100% {
         background-color: var(--skeleton-bg-2);
+    }
+}
+
+
+#gitHubLink{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    fill: var(--gitHub-icon-color);
+    font-size: 12px;
+    gap: 3px;
+    color: var(--gitHub-color);
+    text-decoration: none;
+}
+#gitHubLink > svg{
+    margin-right: 5px;
+}
+
+@media (max-width: 500px) {
+    #settings-btn{
+        padding: var(--padding-btn-t-b);
+    }
+    #settings-btn span{
+        display: none;
     }
 }

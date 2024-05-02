@@ -1,5 +1,5 @@
 import { newCounter, setTitle, startTimer } from "./Counters/newCounter.js";
-import { Buttons, counts, skeleton } from "./Elements.js";
+import { Buttons, Menus, counts, skeleton } from "./Elements.js";
 import { setTheme } from "./Theme/chengeTheme.js";
 import dropDown from "./dropDowns/dropDown.js";
 
@@ -22,7 +22,20 @@ if (location.host == "shunpocode.github.io") {
       });
   } 
 }
+
+// Запуск таймеpа когда сраница загрузилась
 var Timer;
+var time = newCounter({
+  newDate: { year: 2025, month: 0, day: 1, hour: 0, min: 0, sec: 0 },
+}); // Создание даты
+setTitle("New Year");
+
+Buttons.newText({ button: Buttons.dropDowns.counters, text: document.getElementById("end-year").innerHTML });
+Timer = setInterval(function () {
+  startTimer(time, counts.day, counts.hour, counts.min, counts.sec);
+}, 1000);
+
+// Кнопки выбора темы
 Buttons.theme.dark.addEventListener("click", function () {
   setTheme("dark")
 })
@@ -30,10 +43,10 @@ Buttons.theme.light.addEventListener("click", function () {
   setTheme("light")
 })
 
-const countersButons = document.getElementById("counts-menu").getElementsByTagName("button");
+// Кнопки выбора обратного отсчёта
 
-document.getElementById("end-year").addEventListener("click", function () {
-  Buttons.dropDowns.counters.querySelector("span").innerHTML = document.getElementById("end-year").innerHTML;
+document.getElementById("end-year").addEventListener("click", function () { // Конец года
+  Buttons.newText({ button: Buttons.dropDowns.counters, text: document.getElementById("end-year").innerHTML });
   clearInterval(Timer);
   skeleton.count.animation(true);
   skeleton.count.display(true);
@@ -48,8 +61,10 @@ document.getElementById("end-year").addEventListener("click", function () {
   }, 1000);
 
 });
-document.getElementById("anya-brd").addEventListener("click", function () {
+document.getElementById("anya-brd").addEventListener("click", function () { // День рождение Ани
   Buttons.dropDowns.counters.querySelector("span").innerHTML = document.getElementById("anya-brd").innerHTML;
+  Buttons.newText({ button: Buttons.dropDowns.counters, text: document.getElementById("anya-brd").innerHTML });
+
   clearInterval(Timer);
   skeleton.count.animation(true);
   skeleton.count.display(true);
@@ -63,16 +78,18 @@ document.getElementById("anya-brd").addEventListener("click", function () {
   }, 1000);
 });
 
-for (let i = 2; i < countersButons.length; i++) {
-    countersButons[i].addEventListener("click", function () {
+const countersGameButons = document.getElementById("games").getElementsByTagName("button"); // Блок с таймерами игр, в меню выбора счётчика 
+for (let i = 0; i < countersGameButons.length; i++) { // Добавление EventLIstner для каждной кнопки в блоке с играми
+    countersGameButons[i].addEventListener("click", function () {
       clearInterval(Timer);
-      Buttons.dropDowns.counters.querySelector("span").innerHTML = countersButons[i].innerHTML;
+      Buttons.newText({ button: Buttons.dropDowns.counters, text: countersGameButons[i].innerHTML });
+
       skeleton.count.animation(true);
       skeleton.count.display(true);
 
-      var time = newCounter({ json: reliseJSON, name: countersButons[i].id }); 
+      var time = newCounter({ json: reliseJSON, name: countersGameButons[i].id }); 
 
-      setTitle(countersButons[i].innerHTML);
+      setTitle(countersGameButons[i].innerHTML);
 
       Timer = setInterval(function () {
         startTimer(time, counts.day, counts.hour, counts.min, counts.sec);
@@ -80,6 +97,8 @@ for (let i = 2; i < countersButons.length; i++) {
 
   });
 }
+
+
 
 const XML = new XMLHttpRequest();
 var reliseJSON;
@@ -102,11 +121,6 @@ const reliseJsonInteval = setInterval(() => {
   if (reliseJSON !== null) {
     if (reliseJSON) {
       clearInterval(reliseJsonInteval);
-      var time = newCounter({ newDate: { year: 2025, month: 0, day: 1, hour: 0, min: 0, sec: 0 }, }); // Создание даты
-      setTitle("New Year");
-      Timer = setInterval(function () {
-        startTimer(time, counts.day, counts.hour, counts.min, counts.sec);
-      }, 1000);
     }
   } else {
     clearInterval(reliseJsonInteval);
@@ -114,12 +128,17 @@ const reliseJsonInteval = setInterval(() => {
   
 }, 300);
 
+
+// eventListner кнопок для выпадающих меню
 Buttons.dropDowns.counters.addEventListener("click", function () {
   dropDown({
     button: Buttons.dropDowns.counters,
-    menu: document.getElementById("counts-menu"),
-  }); 
+    menu: Menus.counters,
+  });
 })
-
-
-// РЕГИСТРАЦИЯ `service-worker`
+Buttons.dropDowns.settings.addEventListener("click", function () {
+  dropDown({
+    button: Buttons.dropDowns.settings,
+    menu: Menus.settings,
+  });
+})
