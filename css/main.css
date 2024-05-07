@@ -1,419 +1,440 @@
-:root{
-    -webkit-tap-highlight-color: transparent;
-    --padding: 0 5% 0 5%;
-    --padding-btn-t-b: 8px;
-    color-scheme: light dark;
-    --max-width: 2560px
+:root {
+	-webkit-tap-highlight-color: transparent;
+	--padding: 0 5% 0 5%;
+	--padding-btn-t-b: 8px;
+	color-scheme: light dark;
+	--max-width: 2560px;
 }
 
 /* Светлая тема  */
 
 @media (prefers-color-scheme: light) {
-  :root{
-    --color: black;
-    --red: darkred;
-    --skeleton-bg-1: hsl(200, 20%, 90%);
-    --skeleton-bg-2: hsl(200, 20%, 80%);
-    --bg-button: #0F172A;
-    --bg-body: #fff;
-    --color-btn: white;
-    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12);
-    --outline-color: black;
-    --border-color: rgb(66, 66, 66);
-    --gitHub-icon-color: #636c76;
-    --gitHub-color: #1f2328;
-    --line-bg: rgba(180, 180, 180);
-  }
+	:root {
+		--color: black;
+		--red: darkred;
+		--skeleton-bg-1: hsl(200, 20%, 90%);
+		--skeleton-bg-2: hsl(200, 20%, 80%);
+		--bg-button: #0f172a;
+		--bg-body: #fff;
+		--color-btn: white;
+		--bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12);
+		--outline-color: black;
+		--border-color: rgb(66, 66, 66);
+		--gitHub-icon-color: #636c76;
+		--gitHub-color: #1f2328;
+		--line-bg: rgba(180, 180, 180);
+	}
 }
 
 /* Тёмная тема  */
 
 @media (prefers-color-scheme: dark) {
-  :root{
-    --color:white;
-    --red: red;
-    --skeleton-bg-1: hsl(200, 0%, 15%);
-    --skeleton-bg-2: hsl(200, 0%, 25%);
-    --bg-button: white;
-    --bg-body: black;
-    --color-btn: black;
-    --border-color: rgb(66, 66, 66);
-    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3);
-    --outline-color: #d4d4d8;
-    --gitHub-icon-color: #848d97;
-    --gitHub-color: #e6ede3;
-    --line-bg: rgba(80, 80, 80);
-  }
+	:root {
+		--color: white;
+		--red: red;
+		--skeleton-bg-1: hsl(200, 0%, 15%);
+		--skeleton-bg-2: hsl(200, 0%, 25%);
+		--bg-button: white;
+		--bg-body: black;
+		--color-btn: black;
+		--border-color: rgb(66, 66, 66);
+		--bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3);
+		--outline-color: #d4d4d8;
+		--gitHub-icon-color: #848d97;
+		--gitHub-color: #e6ede3;
+		--line-bg: rgba(80, 80, 80);
+	}
 }
 
 /* Светлая тема выбраная пользователем */
 
-body[theme=light]{
-    --color: black !important;
-    --red: darkred !important;
-    --skeleton-bg-1: hsl(200, 20%, 90%) !important;
-    --skeleton-bg-2: hsl(200, 20%, 80%) !important;
-    --bg-button: #0F172A;
-    --bg-body: #fff !important;
-    --color-btn: white !important;
-    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12) !important;
-    --outline-color: black !important;
-    --border-color: rgb(66, 66, 66) !important;
-    --gitHub-icon-color: #636c76 !important;
-    --gitHub-color: #1f2328 !important;
-    --line-bg: rgba(180, 180, 180) !important;
+body[theme="light"] {
+	--color: black !important;
+	--red: darkred !important;
+	--skeleton-bg-1: hsl(200, 20%, 90%) !important;
+	--skeleton-bg-2: hsl(200, 20%, 80%) !important;
+	--bg-button: #0f172a;
+	--bg-body: #fff !important;
+	--color-btn: white !important;
+	--bg-btn-dropdown-hover: rgba(126, 126, 126, 0.12) !important;
+	--outline-color: black !important;
+	--border-color: rgb(66, 66, 66) !important;
+	--gitHub-icon-color: #636c76 !important;
+	--gitHub-color: #1f2328 !important;
+	--line-bg: rgba(180, 180, 180) !important;
 }
 
 /* Тёмная тема выбраная пользователем */
 
-body[theme=dark]{
-    --color:white !important; 
-    --red: red !important;
-    --skeleton-bg-1: hsl(200, 0%, 15%) !important;
-    --skeleton-bg-2: hsl(200, 0%, 25%) !important;
-    --bg-button: white !important;
-    --bg-body: black !important;
-    --color-btn: black !important;
-    --border-color: rgb(66, 66, 66) !important;
-    --bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3) !important;
-    --outline-color: #d4d4d8 !important;
-    --gitHub-icon-color: #848d97  !important;
-    --gitHub-color: #e6ede3 !important;
-    --line-bg: rgba(80, 80, 80) !important;
+body[theme="dark"] {
+	--color: white !important;
+	--red: red !important;
+	--skeleton-bg-1: hsl(200, 0%, 15%) !important;
+	--skeleton-bg-2: hsl(200, 0%, 25%) !important;
+	--bg-button: white !important;
+	--bg-body: black !important;
+	--color-btn: black !important;
+	--border-color: rgb(66, 66, 66) !important;
+	--bg-btn-dropdown-hover: rgba(126, 126, 126, 0.3) !important;
+	--outline-color: #d4d4d8 !important;
+	--gitHub-icon-color: #848d97 !important;
+	--gitHub-color: #e6ede3 !important;
+	--line-bg: rgba(80, 80, 80) !important;
 }
 
 html,
 body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: var(--bg-body);
-    /* overflow: hidden; */
+	margin: 0;
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		"Open Sans",
+		"Helvetica Neue",
+		sans-serif;
+	background: var(--bg-body);
 }
-main{
-    flex-direction: column;
-    align-items: center;
+main {
+	flex-direction: column;
+	align-items: center;
+	height: 100dvh;
+	height: 100vh;
 }
 .flex {
-    display: flex;
+	display: flex;
 }
-button{
-    min-height: 34px;
-    min-width: 34px;
-    gap: 8px;
-    padding: var(--padding-btn-t-b) 12px;
-    background-color: var(--bg-button);
-    border-radius: 6px;
-    border: 1.5px solid var(--border-color);
-    color: var(--color-btn);
-    align-items: center;
-    flex-direction: row;
+button {
+	min-height: 34px;
+	min-width: 34px;
+	gap: 8px;
+	padding: var(--padding-btn-t-b) 12px;
+	background-color: var(--bg-button);
+	border-radius: 6px;
+	border: 1.5px solid var(--border-color);
+	color: var(--color-btn);
+	align-items: center;
+	flex-direction: row;
+	cursor: pointer;
 }
-button[active]{
-    outline: 2px solid var(--outline-color) !important;
-    outline-offset: 0px !important;
+button[active] {
+	outline: 2px solid var(--outline-color) !important;
+	outline-offset: 0px !important;
 }
-button[focus]:focus{
-    outline: 2px solid var(--outline-color);
-    outline-offset: 2px;
+button[focus]:focus {
+	outline: 2px solid var(--outline-color);
+	outline-offset: 2px;
 }
-button[bg=off]{
-    color: var(--color);
-    background: var(--bg-body);
+button[bg="off"] {
+	color: var(--color);
+	background: var(--bg-body);
 }
-button[border=none]{
-    border: none;
-
+button[border="none"] {
+	border: none;
 }
-button:active{
-    outline: 2px solid var(--outline-color) !important;
-    outline-offset: 1px !important;
+button:active {
+	outline: 2px solid var(--outline-color) !important;
+	outline-offset: 1px !important;
 }
-header{
-    position: sticky;
-    top: 0;
-    height: 55px;
-    width: 100%;
-    max-width: var(--max-width);
-    box-sizing: border-box;
-    padding: var(--padding);
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    z-index: 1000;
-    background: var(--bg-body);
+header {
+	position: fixed;
+	top: 0;
+	height: 55px;
+	width: 100%;
+	max-width: var(--max-width);
+	box-sizing: border-box;
+	padding: var(--padding);
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+	z-index: 1000;
+	background: var(--bg-body);
+	transition: 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-#state-header{
-    user-select: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+header[state="close"] {
+	transform: translateY(-100%);
 }
-#state-header > div{
-    align-items: center;
-    justify-content: center;
+#state-header {
+	user-select: none;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 72px;
+	height: 32px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
-#state-header > div .line{
-    background-color: var(--line-bg);
-    height: 4px;
-    width: 12px;
-    border-radius: 60px;
-    transition: 250ms ease-in-out;
+#state-header > div {
+	align-items: center;
+	justify-content: center;
+}
+#state-header > div .line {
+	background-color: var(--line-bg);
+	height: 4px;
+	width: 12px;
+	border-radius: 60px;
+	transition: 250ms ease-in-out;
 }
 @media (hover) {
-    #state-header[state=open] .line:first-child{
-    transform: translateX(0.15rem) !important;
-    }
-    #state-header[state=open] .line:last-child{
-        transform: translateX(-0.15rem) !important;
-    }
-    #state-header[state=open]:hover .line{
-        filter: contrast(0) !important;
-    }
-    #state-header[state=open]:hover .line:first-child{
-        transform: translateX(0.15rem) rotate(-15deg) !important;
-    }
-    #state-header[state=open]:hover .line:last-child{
-        transform: translateX(-0.15rem) rotate(15deg) !important;
-    }
-    #state-header[state=close] .line:first-child{
-        transform: translateX(0.15rem) !important;
-    }
-    #state-header[state=close] .line:last-child{
-        transform: translateX(-0.15rem) !important;
-    }
-    #state-header[state=close]:hover .line{
-        filter: contrast(0) !important;
-    }
-    #state-header[state=close]:hover .line:first-child{
-        transform: translateX(0.15rem) rotate(15deg) !important;
-    }
-    #state-header[state=close]:hover .line:last-child{
-        transform: translateX(-0.15rem) rotate(-15deg) !important;
-    }
+	#state-header[state="open"] .line:first-child {
+		transform: translateX(0.15rem) !important;
+	}
+	#state-header[state="open"] .line:last-child {
+		transform: translateX(-0.15rem) !important;
+	}
+	#state-header[state="open"]:hover .line {
+		filter: contrast(0) !important;
+	}
+	#state-header[state="open"]:hover .line:first-child {
+		transform: translateX(0.15rem) rotate(-15deg) !important;
+	}
+	#state-header[state="open"]:hover .line:last-child {
+		transform: translateX(-0.15rem) rotate(15deg) !important;
+	}
+
+	#state-header[state="close"]:hover .line {
+		filter: contrast(0) !important;
+	}
 }
 
-#state-header[state=open]:active .line{
-    filter: contrast(0);
+#state-header[state="open"]:active .line,
+#state-header[state="close"]:active .line {
+	filter: contrast(0);
 }
-#state-header[state=open] .line:first-child{
-    transform: translateX(0.15rem) rotate(-15deg);
+#state-header[state="open"] .line:first-child {
+	transform: translateX(0.15rem) rotate(-15deg);
 }
-#state-header[state=open] .line:last-child{
-    transform: translateX(-0.15rem) rotate(15deg);
+#state-header[state="open"] .line:last-child {
+	transform: translateX(-0.15rem) rotate(15deg);
 }
-#state-header[state=close] .line:first-child{
-    transform: translateX(0.15rem) rotate(15deg);
+#state-header[state="close"] .line:first-child {
+	transform: translateX(0.15rem) rotate(15deg);
 }
-#state-header[state=close] .line:last-child{
-    transform: translateX(-0.15rem) rotate(-15deg);
+#state-header[state="close"] .line:last-child {
+	transform: translateX(-0.15rem) rotate(-15deg);
 }
 
-header > div{
-    flex-direction: row;
-    gap: 12px;
-    max-width: 100%;
+header > div {
+	flex-direction: row;
+	gap: 12px;
+	max-width: 100%;
 }
 #login {
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--color);
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	color: var(--color);
 }
-#changeCountdowns, #settings{
-    position: relative;
+#changeCountdowns,
+#settings {
+	position: relative;
 }
-#counts-btn{
-    gap: 60px;
-    max-width: 250px;
-    width:100%;
+#counts-btn {
+	gap: 60px;
+	max-width: 250px;
+	width: 100%;
 }
-#counts-btn span{
-    width: 100%;
-    overflow: hidden;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
+#counts-btn span {
+	width: 100%;
+	overflow: hidden;
+	text-wrap: nowrap;
+	text-overflow: ellipsis;
+	text-align: start;
 }
-.dropdown{
-    position: absolute;
-    flex-direction: column;
-    align-items: flex-end;
-    width: max-content;
-    border: 1.5px solid var(--border-color);
-    border-radius: 8px;
-    padding: 8px;
-    gap: 6px;
-    background: var(--bg-body);
-    z-index: 1001;
-    transition: 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    opacity: 0;
-    pointer-events: none;
+.dropdown {
+	position: absolute;
+	flex-direction: column;
+	align-items: flex-end;
+	width: max-content;
+	border: 1.5px solid var(--border-color);
+	border-radius: 8px;
+	padding: 8px;
+	gap: 6px;
+	background: var(--bg-body);
+	z-index: 1001;
+	transition:
+		250ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+		height 0ms;
+	opacity: 0;
+	pointer-events: none;
+	max-height: calc(90vh - 55px);
+	overflow: auto;
 }
-.dropdown div{
-    width: 100%;
+.dropdown::-webkit-scrollbar {
+	width: 5px;
 }
-.dropdown div > h4{
-    margin: 2px 0;
-    color: var(--color);
+.dropdown::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background: var(--border-color);
 }
-.dropdown div > h4::after{
-    content: ":";
+.dropdown div {
+	width: 100%;
 }
-.dropdown hr{
-    width: 100%;
-    margin: 2px 0 0;
-    opacity: .4;
+.dropdown div > h4 {
+	margin: 2px 0;
+	color: var(--color);
 }
-.dropdown[open]{
-    transform: scale(1) translate(0px, 0px) !important;
-    opacity: 1 !important;
-    pointer-events: all !important;
+.dropdown div > h4::after {
+	content: ":";
 }
-.dropdown button{
-    width: 100%;
-    padding-top: 8px;
-    padding-bottom: 8px;
+.dropdown hr {
+	width: 100%;
+	margin: 2px 0 0;
+	opacity: 0.4;
 }
-.dropdown button:hover{
-    background: var(--bg-btn-dropdown-hover);
-    
+.dropdown[open] {
+	transform: scale(1) translate(0px, 0px) !important;
+	opacity: 1 !important;
+	pointer-events: all !important;
 }
-#counts-menu, #settings-menu{
-    top: calc(100% + 8px);
+.dropdown button {
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
-#counts-menu{
-    left: -2px;
-    transform: scale(.8) translate(-15px, -20px);
+.dropdown button:hover {
+	background: var(--bg-btn-dropdown-hover);
 }
-#settings-menu{
-    right: -2px;
-    transform: scale(.8) translate(30px, -20px);
+#counts-menu,
+#settings-menu {
+	top: calc(100% + 8px);
+}
+#counts-menu {
+	left: -2px;
+	transform: scale(0.8) translate(-15px, -20px);
+}
+#settings-menu {
+	right: -2px;
+	transform: scale(0.8) translate(30px, -20px);
 }
 
 .center {
-    /* font-family: "Xanh Mono"; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    gap: 15px;
-    padding: var(--padding);
-    box-sizing: border-box;
-    max-width: var(--max-width);
+	/* font-family: "Xanh Mono"; */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	gap: 15px;
+	padding: var(--padding);
+	box-sizing: border-box;
+	max-width: var(--max-width);
 }
 
-#countdown_label, #countdown_label > span{
-    font-weight: 500;
-    color: var(--red);
-    font-size: clamp(12px, calc(3.25vh + 3.25vw), 60px);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    position: relative;
-    min-height: clamp(30px, calc(5vw + 5vh), 80px);
+#countdown_label,
+#countdown_label > span {
+	font-weight: 500;
+	color: var(--red);
+	font-size: clamp(12px, calc(2vh + 3vw), 60px);
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	position: relative;
+	min-height: clamp(30px, calc(5vw + 5vh), 80px);
 }
-#countdown_label{
-    width: 100%;
+#countdown_label {
+	width: 100%;
 }
-#countdown_label > span{
-    width: 90%;
+#countdown_label > span {
+	width: 90%;
 }
-#countdown_label .skeleton__anim, #countdown_label .skeleton{
-    width: 90%;
+#countdown_label .skeleton__anim,
+#countdown_label .skeleton {
+	width: 90%;
 }
 .count_name {
-    color: var(--color);
-    text-align: center;
-    font-size: clamp(5px, 4dvw, 35px);
+	color: var(--color);
+	text-align: center;
+	font-size: clamp(5px, 4dvw, 35px);
 }
 
-#countdown{
-    width: 100%;
+#countdown {
+	width: 100%;
 }
-.counter-block{
-    text-align: center;
-    min-width: 10%;
+.counter-block {
+	text-align: center;
+	min-width: 10%;
 }
 .countdown_stackpanel {
-    justify-content: space-between;
-    /* align-items: center; */
-    position: relative;
-    box-sizing: border-box;
+	justify-content: space-between;
+	/* align-items: center; */
+	position: relative;
+	box-sizing: border-box;
 }
 
-.countdown_stackpanel>div {
-    position: relative;
-    flex-direction: column;
-    /* gap: 12px;
+.countdown_stackpanel > div {
+	position: relative;
+	flex-direction: column;
+	/* gap: 12px;
     height: clamp(20px, 15dvw, 220px); */
 }
-.countdown_stackpanel>div .skeleton__anim, .countdown_stackpanel>div .skeleton{
-    width: 110%;
-    left: -5%;
-    top: 5%;
-    /* height: clamp(20px, calc(7.5vw + 7vh), 220px); */
-    height: 65%;
+.countdown_stackpanel > div .skeleton__anim,
+.countdown_stackpanel > div .skeleton {
+	width: 110%;
+	left: -5%;
+	top: 5%;
+	/* height: clamp(20px, calc(7.5vw + 7vh), 220px); */
+	height: 65%;
 }
 .countdown_stackpanel .counter {
-    min-height: clamp(20px, calc(7.5vh + 7.5vw), 250px);
-    color: var(--color);
-    font-size: clamp(20px, calc(3vh + 6vw), 200px);
+	min-height: clamp(20px, calc(5vh + 7.5vw), 250px);
+	color: var(--color);
+	font-size: clamp(20px, calc(3vh + 6vw), 200px);
 }
-.countdown_stackpanel div:last-child>.counter {
-    color: var(--red);
+.countdown_stackpanel div:last-child > .counter {
+	color: var(--red);
 }
-.dot{
-    display: block;
-    transform: translateY(-5%);
+.dot {
+	display: block;
+	transform: translateY(-5%);
 }
-.skeleton, .skeleton__anim {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: var(--skeleton-bg-1);
-    border-radius: 12px;
+.skeleton,
+.skeleton__anim {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: var(--skeleton-bg-1);
+	border-radius: 12px;
 }
-.skeleton__anim{
-    animation: 1s skeleton-loading ease-in-out infinite alternate;
+.skeleton__anim {
+	animation: 1s skeleton-loading ease-in-out infinite alternate;
 }
 @keyframes skeleton-loading {
-    0% {
-        background-color: var(--skeleton-bg-1);
-    }
-    100% {
-        background-color: var(--skeleton-bg-2);
-    }
+	0% {
+		background-color: var(--skeleton-bg-1);
+	}
+	100% {
+		background-color: var(--skeleton-bg-2);
+	}
 }
 
-
-#gitHubLink{
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    fill: var(--gitHub-icon-color);
-    font-size: 12px;
-    gap: 3px;
-    color: var(--gitHub-color);
-    text-decoration: none;
+#gitHubLink {
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	fill: var(--gitHub-icon-color);
+	font-size: 12px;
+	gap: 3px;
+	color: var(--gitHub-color);
+	text-decoration: none;
 }
-#gitHubLink > svg{
-    margin-right: 5px;
+#gitHubLink > svg {
+	margin-right: 5px;
 }
 
 @media (max-width: 500px) {
-    #settings-btn{
-        padding: var(--padding-btn-t-b);
-    }
-    #settings-btn span{
-        display: none;
-    }
+	#settings-btn {
+		padding: var(--padding-btn-t-b);
+	}
+	#settings-btn span {
+		display: none;
+	}
 }

@@ -1,6 +1,7 @@
 {
-   "games":{
-     "v_rising": {
+   "games": {
+      "id_list": ["v_rising", "stalker_2", "black_myth_wuKong"],
+      "v_rising": {
          "id": "v_rising",
          "title": "V Rising",
          "year": 2024,
@@ -9,8 +10,8 @@
          "hour": 16,
          "min": 0,
          "sec": 0
-     },
-     "stalker_2":{
+      },
+      "stalker_2": {
          "id": "stalker_2",
          "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
          "year": 2024,
@@ -19,6 +20,16 @@
          "hour": 12,
          "min": 0,
          "sec": 0
-     }
+      },
+      "black_myth_wuKong": {
+         "id": "black_myth_wuKong",
+         "title": "Black Myth: WuKong",
+         "year": 2024,
+         "month": 7,
+         "day": 20,
+         "hour": 0,
+         "min": 0,
+         "sec": 0
+      }
    }
 }

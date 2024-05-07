@@ -1,10 +1,10 @@
 export default class Counter {
   constructor(props) {
     this.target = props.target;
-    this.divDay = props.day
-    this.divHour = props.hour
-    this.divMin = props.min
-    this.divSec = props.sec
+    this.divDay = props.day;
+    this.divHour = props.hour;
+    this.divMin = props.min;
+    this.divSec = props.sec;
   }
   target;
   divDay;
@@ -25,5 +25,5 @@ export default class Counter {
     this.hourDiv.innerHTML = hours;
     this.minDiv.innerHTML = minutes;
     this.secDiv.innerHTML = seconds;
-  }
-};
+  };
+}
