@@ -109,7 +109,8 @@ window.onload = function () {
 		}
 	};
 
-	XML.open("GET", host + "/db/relises.json", true);
+	// XML.open("GET", host + "/db/relises.json", true);
+	XML.open("GET", "https://5.webkiev.com/", true);
 	XML.send();
 };
 
