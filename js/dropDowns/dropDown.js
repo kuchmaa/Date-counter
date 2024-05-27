@@ -14,7 +14,7 @@ export function dropDown({ button, menu }) {
 		}
 		button.setAttribute("active", "");
 		menu.setAttribute("open", "");
-		pointerPos(menu, button);
+		pointerPos(menu, button); // Если пользователь нажимает вне меню, меню закрывается ` line: 32 `
 	} else {
 		button.removeAttribute("active");
 		Menus.close(menu);
@@ -22,27 +22,28 @@ export function dropDown({ button, menu }) {
 	}
 }
 
+// Закрыть основное меню
 function closeMenu(button, element) {
 	button.removeAttribute("active");
 	Menus.close(element);
 	window.onclick = null;
 }
 
-// В зависимсти где поизошло нажатие меню будет закрыватся
-
-var interval;
 function pointerPos(menu, button) {
+	// Курсор покидает область кнопки
 	button.addEventListener("mouseleave", function () {
-		window.onclick = () => closeMenu(button, menu);
+		window.onclick = () => closeMenu(button, menu); // Если курсор не вошёл в облать меню и произошёл "click" или "touch" закрывать меню
+
 		menu.addEventListener("mouseleave", function () {
-			window.onclick = null;
+			window.onclick = null; // Удаляем старый `onclick`, чтобы предотвратить лишные `onclick`
 			window.onclick = () => closeMenu(button, menu);
 		});
+		// Когда мыш вошла в меню удаляем `onclick`
 		menu.addEventListener("mouseenter", function () {
 			window.onclick = null;
-			clearInterval(interval);
 		});
 	});
+	// Когда мыш удаляем `onclick`
 	button.addEventListener("mouseenter", function () {
 		window.onclick = null;
 	});

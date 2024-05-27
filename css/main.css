@@ -3,7 +3,7 @@
 	--padding: 0 5% 0 5%;
 	--padding-btn-t-b: 8px;
 	color-scheme: light dark;
-	--max-width: 2560px;
+	--max-width: 1440px;
 }
 
 /* Светлая тема  */
@@ -109,9 +109,9 @@ main {
 	display: flex;
 }
 button {
-	min-height: 34px;
+	height: 34px;
 	min-width: 34px;
-	gap: 8px;
+	gap: 6px;
 	padding: var(--padding-btn-t-b) 12px;
 	background-color: var(--bg-button);
 	border-radius: 6px;
@@ -153,10 +153,34 @@ header {
 	justify-content: space-between;
 	z-index: 1000;
 	background: var(--bg-body);
-	transition: 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: transform 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 header[state="close"] {
 	transform: translateY(-100%);
+}
+header > div {
+	align-items: center;
+	flex-direction: row;
+	gap: 8px;
+	max-width: 100%;
+}
+.drop-arrow {
+	height: 18px;
+	width: 36px;
+	stroke: var(--color);
+	opacity: 0.5;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.arrow[top] {
+	transform: rotate(90deg);
+}
+.arrow[right] {
+	transform: rotate(-45deg);
+}
+.arrow[left] {
+	transform: rotate(90deg) translateY(-5px);
 }
 #state-header {
 	user-select: none;
@@ -220,11 +244,6 @@ header[state="close"] {
 	transform: translateX(-0.15rem) rotate(-15deg);
 }
 
-header > div {
-	flex-direction: row;
-	gap: 12px;
-	max-width: 100%;
-}
 #login {
 	align-items: center;
 	justify-content: center;
@@ -254,17 +273,17 @@ header > div {
 	width: max-content;
 	border: 1.5px solid var(--border-color);
 	border-radius: 8px;
-	padding: 8px;
+	padding: 10px;
 	gap: 6px;
 	background: var(--bg-body);
 	z-index: 1001;
 	transition:
-		250ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
-		height 0ms;
+		opacity 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55),
+		transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
 	opacity: 0;
 	pointer-events: none;
 	max-height: calc(90vh - 55px);
-	overflow: auto;
+	/* overflow: auto; */
 }
 .dropdown::-webkit-scrollbar {
 	width: 5px;
@@ -285,7 +304,7 @@ header > div {
 }
 .dropdown hr {
 	width: 100%;
-	margin: 2px 0 0;
+	margin: 2px 0 4px;
 	opacity: 0.4;
 }
 .dropdown[open] {
@@ -297,21 +316,54 @@ header > div {
 	width: 100%;
 	padding-top: 8px;
 	padding-bottom: 8px;
+	align-items: center;
+	justify-content: space-between;
 }
 .dropdown button:hover {
 	background: var(--bg-btn-dropdown-hover);
+}
+.dropdown button[focus]:focus,
+.dropdown button[active] {
+	outline: none !important;
+	background-color: var(--bg-btn-dropdown-hover);
 }
 #counts-menu,
 #settings-menu {
 	top: calc(100% + 8px);
 }
 #counts-menu {
+	align-items: flex-end;
 	left: -2px;
-	transform: scale(0.8) translate(-15px, -20px);
+	transform: scale(0.8) translate(-35px, -35px);
+	overflow: auto;
+	overflow-x: hidden;
+}
+#counts-menu div {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
 }
 #settings-menu {
+	align-items: center;
 	right: -2px;
 	transform: scale(0.8) translate(30px, -20px);
+}
+#settings-menu > div {
+	position: relative;
+	flex-direction: column;
+}
+#settings-menu > div span {
+	gap: 6px;
+	align-items: flex-end;
+	justify-content: center;
+	fill: var(--color);
+}
+#settings-menu > div span svg {
+	height: 18px;
+	width: 18px;
+}
+#settings-menu > div .dropdown {
+	left: -100%;
 }
 
 .center {
@@ -321,10 +373,16 @@ header > div {
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	gap: 15px;
 	padding: var(--padding);
 	box-sizing: border-box;
 	max-width: var(--max-width);
+}
+.center > section {
+	position: relative;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #countdown_label,
@@ -336,10 +394,11 @@ header > div {
 	justify-content: center;
 	align-items: center;
 	margin: 0;
-	position: relative;
 	min-height: clamp(30px, calc(5vw + 5vh), 80px);
 }
 #countdown_label {
+	bottom: 100%;
+	position: absolute;
 	width: 100%;
 }
 #countdown_label > span {
@@ -347,12 +406,16 @@ header > div {
 }
 #countdown_label .skeleton__anim,
 #countdown_label .skeleton {
-	width: 90%;
+	width: 50%;
+	height: 70%;
+	top: 15%;
 }
 .count_name {
 	color: var(--color);
 	text-align: center;
-	font-size: clamp(5px, 4dvw, 35px);
+	font-size: clamp(12px, calc(4vw - 2vh), 35px);
+	position: absolute;
+	top: 110%;
 }
 
 #countdown {
@@ -360,11 +423,11 @@ header > div {
 }
 .counter-block {
 	text-align: center;
-	min-width: 10%;
+	align-items: center;
+	min-width: clamp(45px, 10vw, 130px);
 }
 .countdown_stackpanel {
 	justify-content: space-between;
-	/* align-items: center; */
 	position: relative;
 	box-sizing: border-box;
 }
@@ -381,12 +444,12 @@ header > div {
 	left: -5%;
 	top: 5%;
 	/* height: clamp(20px, calc(7.5vw + 7vh), 220px); */
-	height: 65%;
+	height: 90%;
 }
 .countdown_stackpanel .counter {
-	min-height: clamp(20px, calc(5vh + 7.5vw), 250px);
+	/* min-height: clamp(20px, calc(5vh + 7.5vw), 250px); */
 	color: var(--color);
-	font-size: clamp(20px, calc(3vh + 6vw), 200px);
+	font-size: clamp(16px, calc(3vh + 6vw), 200px);
 }
 .countdown_stackpanel div:last-child > .counter {
 	color: var(--red);
@@ -415,19 +478,22 @@ header > div {
 		background-color: var(--skeleton-bg-2);
 	}
 }
-
 #gitHubLink {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	fill: var(--gitHub-icon-color);
 	font-size: 12px;
+	height: 32px;
 	gap: 3px;
 	color: var(--gitHub-color);
 	text-decoration: none;
 }
 #gitHubLink > svg {
 	margin-right: 5px;
+}
+#settings-menu #gitHubLink {
+	margin-top: 16px;
 }
 
 @media (max-width: 500px) {

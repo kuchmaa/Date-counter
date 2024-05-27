@@ -1,35 +1,61 @@
 {
-   "games": {
-      "id_list": ["v_rising", "stalker_2", "black_myth_wuKong"],
-      "v_rising": {
-         "id": "v_rising",
-         "title": "V Rising",
-         "year": 2024,
-         "month": 5,
-         "day": 8,
-         "hour": 16,
-         "min": 0,
-         "sec": 0
-      },
-      "stalker_2": {
-         "id": "stalker_2",
-         "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
-         "year": 2024,
-         "month": 9,
-         "day": 1,
-         "hour": 12,
-         "min": 0,
-         "sec": 0
-      },
-      "black_myth_wuKong": {
-         "id": "black_myth_wuKong",
-         "title": "Black Myth: WuKong",
-         "year": 2024,
-         "month": 7,
-         "day": 20,
-         "hour": 0,
-         "min": 0,
-         "sec": 0
-      }
-   }
+	"games": {
+		"id_list": ["v_rising", "stalker_2", "black_myth_wuKong", "destiny_2_the_final_shape"],
+		"v_rising": {
+			"state": null,
+			"id": "v_rising",
+			"title": {
+				"en": "V Rising",
+				"ru": null
+			},
+			"year": 2024,
+			"month": 5,
+			"day": 8,
+			"hour": 14,
+			"min": 0,
+			"sec": 0
+		},
+		"stalker_2": {
+			"state": null,
+			"id": "stalker_2",
+			"title": {
+				"en": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+				"ru": "S.T.A.L.K.E.R. 2: Сердце Чернобыля"
+			},
+			"year": 2024,
+			"month": 9,
+			"day": 1,
+			"hour": 12,
+			"min": 0,
+			"sec": 0
+		},
+		"black_myth_wuKong": {
+			"state": null,
+			"id": "black_myth_wuKong",
+			"title": {
+				"en": "Black Myth: WuKong",
+				"ru": null
+			},
+			"year": 2024,
+			"month": 7,
+			"day": 20,
+			"hour": 0,
+			"min": 0,
+			"sec": 0
+		},
+		"destiny_2_the_final_shape": {
+			"state": null,
+			"id": "destiny_2_the_final_shape",
+			"title": {
+				"en": "Destiny 2: The Final Shape",
+				"ru": "Destiny 2: Финальная форма"
+			},
+			"year": 2024,
+			"month": 6,
+			"day": 4,
+			"hour": 0,
+			"min": 0,
+			"sec": 0
+		}
+	}
 }

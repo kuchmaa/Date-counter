@@ -26,6 +26,11 @@ export const Buttons = {
 	newText: ({ button, text }) => (button.querySelector("span").innerHTML = text),
 };
 export const Menus = {
+	supmenus: {
+		settings: {
+			lang: document.getElementById(""),
+		},
+	},
 	counters: document.getElementById("counts-menu"),
 	settings: document.getElementById("settings-menu"),
 	close: function (elem) {
