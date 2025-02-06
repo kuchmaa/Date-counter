@@ -123,3 +123,6 @@ Buttons.dropDowns.counters.addEventListener("click", function () {
 
 
 // РЕГИСТРАЦИЯ `service-worker`
+
+
+fetch("test.webkiev.com/items).then(data => data.json()).then(json => alert(json))
